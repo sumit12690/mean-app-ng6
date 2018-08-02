@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="categoryForm" method="POST" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Category Name</label>
+        <input type="text" class="form-control" name="category_name" formControlName="category_name" #category_name [(ngModel)]="category.name"
+        />
+      </div>
+      <div *ngIf="categoryForm.controls['category_name'].invalid && (categoryForm.controls['category_name'].dirty || categoryForm.controls['category_name'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="categoryForm.controls['category_name'].errors.required">
+          Category Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateCategory(category_name.value)" [disabled]="categoryForm.invalid" class="btn btn-primary">Update Category</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CategoryService {
 
-  uri = 'http://localhost:4000/category';
+  uri = 'https://ecom-api-12690.herokuapp.com/category';
 
   constructor(private http: HttpClient) { }
 
   addCategory(category_name) {
     const cat_data = {
       category_name: category_name,
-    }
+    };
     this.http.post(`${this.uri}/add`, cat_data)
       .subscribe(res => console.log('Done'));
   }
@@ -35,7 +35,7 @@ export class CategoryService {
 
   updateCategory(category_name, id) {
     const obj = {
-      category_name: category_name,
+      name: category_name,
     };
     this
       .http

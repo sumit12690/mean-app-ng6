@@ -8,7 +8,7 @@
 
   <tbody>
       <tr *ngFor="let category of categories">
-          <td>{{ category.name }}</td>
+          <td>{{ category.cat_name }}</td>
           <td><a [routerLink]="['/category/edit', category._id]" class="btn btn-primary">Edit</a></td>
           <td><a [routerLink]="['/category/detail', category._id]" class="btn btn-primary">View</a></td>
           <td><button (click)="deleteCategory(category._id)"  class="btn btn-danger">Delete</button></td>

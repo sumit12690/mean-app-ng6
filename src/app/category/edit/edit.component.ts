@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from '../category.service';
+import { Category } from '../list/category';
 
 @Component({
   selector: 'app-edit',
@@ -20,12 +21,6 @@ export class EditComponent implements OnInit {
     this.createForm();
   }
 
-  createForm() {
-    this.categoryForm = this.fb.group({
-      category_name: ['', Validators.required]
-    });
-  }
-
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.categoryservice.getCategory(params['id']).subscribe(res => {
@@ -33,6 +28,14 @@ export class EditComponent implements OnInit {
       });
     });
   }
+
+  createForm() {
+    this.categoryForm = this.fb.group({
+      category_name: ['', Validators.required]
+    });
+  }
+
+
 
   updateCategory(category_name) {
     this.route.params.subscribe(params => {

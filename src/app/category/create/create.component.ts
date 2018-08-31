@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from '../category.service';
 
 
 @Component({
@@ -23,8 +23,7 @@ export class CreateComponent implements OnInit {
   createForm() {
     this.categoryForm = this.fb.group({
       category_name: ['', Validators.required],
-
-    })
+    });
   }
 
   addCategory(category_name) {

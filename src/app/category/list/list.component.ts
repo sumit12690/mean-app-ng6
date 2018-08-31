@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from '../category.service';
 import { Category } from './category';
 
 @Component({
@@ -13,11 +13,10 @@ export class ListComponent implements OnInit {
 
   constructor(private categoryservice: CategoryService) { }
 
-
   ngOnInit() {
     this.categoryservice
       .getCategories()
-      .subscribe((data: Category[]) => {
+      .subscribe((data: any) => {
         this.categories = data;
       });
   }
@@ -27,4 +26,5 @@ export class ListComponent implements OnInit {
       console.log('Deleted');
     });
   }
+  
 }
